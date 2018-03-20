@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User ;
 use App\Models\Video ;
 use App\Builder\Helper ;
+
+use Auth ;
 
 use Socialite;
 
@@ -23,10 +26,30 @@ class FrontController extends Controller
 
         $user = Socialite::driver('github')->user();
 
-        dump( $user->getId() ) ;
-		dump( $user->getNickname() ) ;
-		dump( $user->getName() ) ;
-		dump( $user->getEmail() ) ;
+		if ( User::where( 'email', $user->getEmail() )->count() > 0 ) {
+			if ( Auth::loginUsingId( ( User::where( 'email', $user->getEmail() )->first() )->id ) ) {
+				return redirect('/home') ;
+			}
+		} else {
+	        $user                   = User::create([
+
+	            'name'              => $user->getName(),
+	            'surname'           => "",
+	            'email'             => $user->getEmail(),
+	            'username'          => $user->getNickname(),
+	            'password'          => bcrypt( $user->getNickname() ),
+	            'is_active'         => 1,
+	            'is_admin'          => 0,
+
+	        ]) ;
+
+			if ( Auth::loginUsingId( $user->id ) ) {
+				return redirect('/home') ;
+			}
+
+		}
+
+
     }
 
 }
