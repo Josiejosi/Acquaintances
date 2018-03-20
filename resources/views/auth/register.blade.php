@@ -97,10 +97,10 @@
 
               <div class="or"></div>
 
-                <a href="#" class="btn btn-lg bg-twitter full-width btn-icon-left"><i class="fa fa-twitter" aria-hidden="true"></i>sign up with Github</a>
+                <a href="{{ url( '/login/github' ) }}" class="btn btn-lg bg-twitter full-width btn-icon-left"><i class="fa fa-twitter" aria-hidden="true"></i>sign up with Github</a>
 
 
-                <p>you have an account? <a href="07-log_in_page.html"> Sing in !</a> </p>
+                <p>you have an account? <a href="{{ url( '/login' ) }}"> Sing in !</a> </p>
             </form>
         </div>
 

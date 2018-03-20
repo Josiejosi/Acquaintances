@@ -44,7 +44,7 @@
 
               <div class="or"></div>
 
-                <a href="#" class="btn btn-lg bg-facebook full-width btn-icon-left"><i class="fa fa-gitbub" aria-hidden="true"></i>Login with GitHub</a>
+                <a href="{{ url( '/login/github' ) }}" class="btn btn-lg bg-facebook full-width btn-icon-left"><i class="fa fa-gitbub" aria-hidden="true"></i>Login with GitHub</a>
 
 
                 <p>Don't you have an account? <a href="{{ url( '/register' ) }}">Register Now!</a> </p>
