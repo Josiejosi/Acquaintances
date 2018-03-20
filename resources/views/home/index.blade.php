@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.app')
 
 @section('content')
 
@@ -12,10 +12,10 @@
                     <div class="thumb">
                         <div class="hover-efect"></div>
                         <small class="time">{{ $video->video_length }}</small>
-                        <a href="#"><img src="{{ asset('img/play.jpg ') }}" alt=""  data-toggle="modal" data-target="#login_dialog"></a>
+                        <a href="{{ url( '/watch' ) }}/{{ $video->id }}"><img src="{{ asset('img/play.jpg ') }}" alt=""></a>
                     </div>
                     <div class="video-info">
-                        <a href="#" class="title"  data-toggle="modal" data-target="#login_dialog">{{ $video->name }}</a>
+                        <a href="#" class="title">{{ $video->name }}</a>
                         <a class="channel-name" href="#">
                             {{ (\App\Models\User::find( $video->user_id ) )->name  }} {{ (\App\Models\User::find( $video->user_id ) )->name  }}
                             <span>
@@ -34,5 +34,6 @@
         <h1 class="new-video-title"><i class="fa fa-soccer-ball-o"></i> No new channels</h1>
 
     @endif
+
 
 @endsection
