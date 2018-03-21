@@ -37,7 +37,7 @@
                                 Remember Me
                         </label>
                     </div>
-                    <a href="#" class="forgot">Forgot my Password</a>
+                    <a href="{{ url( '/password/reset' ) }}" class="forgot">Forgot my Password</a>
                 </div>
                 
                 <button class="btn btn-lg btn-primary full-width">Login</button>

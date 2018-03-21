@@ -17,7 +17,7 @@
                     <input 
                         class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" 
                         placeholder="" 
-                         name="username" value="{{ old('username') }}" required autofocus
+                         name="username" value="{{ old('username') }}" autofocus
                         type="text">
                         @if ($errors->has('username'))
                             <span class="invalid-feedback">
@@ -30,7 +30,7 @@
                     <input 
                         class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" 
                         placeholder="" 
-                         name="name" value="{{ old('name') }}" required autofocus
+                         name="name" value="{{ old('name') }}" autofocus
                         type="text">
                         @if ($errors->has('name'))
                             <span class="invalid-feedback">
@@ -43,7 +43,7 @@
                     <input 
                         class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" 
                         placeholder="" 
-                         name="surname" value="{{ old('surname') }}" required autofocus
+                         name="surname" value="{{ old('surname') }}" autofocus
                         type="text">
                         @if ($errors->has('surname'))
                             <span class="invalid-feedback">
@@ -57,7 +57,7 @@
                         class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
                         placeholder=""
                          name="email" 
-                         value="{{ old('email') }}" required 
+                         value="{{ old('email') }}" 
                         type="email">
                         @if ($errors->has('name'))
                             <span class="invalid-feedback">
@@ -70,7 +70,7 @@
                     <input 
                         class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" 
                         placeholder="" 
-                        name="password" required
+                        name="password"
                         type="password">
                         @if ($errors->has('password'))
                             <span class="invalid-feedback">
@@ -82,15 +82,6 @@
                 <div class="form-group label-floating">
                     <label class="control-label">Confirm Your Password</label>
                     <input class="form-control" placeholder="" name="password_confirmation" type="password">
-                </div>
-                
-                <div class="remember">
-                    <div class="checkbox">
-                        <label>
-                            <input name="optionsCheckboxes" type="checkbox">
-                            I accept the <a href="#">Terms and Conditions</a> of the website
-                        </label>
-                    </div>
                 </div>
                 
               <button class="btn btn-lg btn-primary full-width">Complete sign up</button>
