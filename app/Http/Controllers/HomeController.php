@@ -56,6 +56,36 @@ class HomeController extends Controller
         return view( 'home.category', Helper::PageGenerator( 'Page title') ) ;
     }
 
+    public function delete_category($id) {
+
+        $category           = Category::find($id) ;
+
+        if ( count($category) > 0 ) {
+            $category->delete() ;
+            flash( 'Category removed' ) ;
+        } else {
+            flash( 'Failed to remove category.' ) ;
+        }
+
+        return redirect()->back() ;
+    }
+
+    public function delete_user($id) {
+        $user           = User::find($id) ;
+        $user->delete() ;
+        flash( 'User removed' ) ;
+        return redirect()->back() ;
+    }
+
+    public function block_user($id) {
+        $user           = User::find($id) ;
+
+        $user->update(['is_active'=>0]) ;
+
+        flash( 'account in-active' ) ;
+        return redirect()->back() ;
+    }
+
     public function post_category( Request $request ) {
 
         Category::create([

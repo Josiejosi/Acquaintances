@@ -28,10 +28,14 @@ Route::get('watch/{id}', 				'HomeController@watch')->name('watch');
 Route::post('upload', 				'HomeController@video_upload')->name('video_upload');
 
 Route::get('category', 				'HomeController@category')->name('category') ;
+Route::get('category/delete/{id}', 	'HomeController@delete_category')->name('delete_category') ;
 Route::post('category', 			'HomeController@post_category')->name('post_category') ;
 
 Route::get('user', 					'HomeController@user')->name('user') ;
-Route::get('block', 					'HomeController@block')->name('block') ;
+Route::get('user/delete/{id}', 		'HomeController@delete_user')->name('delete_user') ;
+Route::get('user/block/{id}', 		'HomeController@block_user')->name('block_user') ;
+Route::get('user', 					'HomeController@user')->name('user') ;
+Route::get('block', 				'HomeController@block')->name('block') ;
 Route::post('user', 				'HomeController@post_user')->name('post_user') ;
 
 Route::get('login/github', 			'FrontController@redirectToProvider');

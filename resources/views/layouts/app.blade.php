@@ -112,9 +112,10 @@
           </div>
       </div>
 
-        @include( "includes.sidebar" )
 
         <div id="all-output" class="col-md-10">
+
+            @include( "includes.sidebar" )
             
             @yield('content')
 
