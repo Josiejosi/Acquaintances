@@ -27,7 +27,7 @@
 
                 <div class="form-group label-floating">
                     <label class="control-label">Your Password</label>
-                    <input class="form-control" placeholder="" type="password">
+                    <input class="form-control" placeholder="" name="password" type="password">
                 </div>
                 
                 <div class="remember">
