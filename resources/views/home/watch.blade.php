@@ -34,7 +34,7 @@
                 			<a class="title" href="#">
 								{{ (\App\Models\User::find( $bulder->user_id ) )->name  }} {{ (\App\Models\User::find( $bulder->user_id ) )->name  }}
                 			</a>
-                			<span class="subscribers">436,414 subscribers</span>
+                			<span class="subscribers">0 subscribers</span>
                 		</div>
                 		<a href="#" class="subscribe">Subscribe</a>
                 	</div>

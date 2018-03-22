@@ -61,8 +61,17 @@ class HomeController extends Controller
         $category           = Category::find($id) ;
 
         if ( count($category) > 0 ) {
+
+
+            if ( Video::where( 'category_id', $id )->count() > 0 ) {
+                foreach( Video::where( 'category_id', $id )->get() as $video ) {
+                    $video->delete() ;
+                }
+            }
+
             $category->delete() ;
-            flash( 'Category removed' ) ;
+            flash( 'Category removed, with associated channel topics.' ) ;
+
         } else {
             flash( 'Failed to remove category.' ) ;
         }
@@ -87,6 +96,11 @@ class HomeController extends Controller
     }
 
     public function post_category( Request $request ) {
+
+        $this->validate($request,[
+            'name' => 'required',
+            'description' => 'required',
+        ]);
 
         Category::create([
 
@@ -123,6 +137,14 @@ class HomeController extends Controller
     }
 
     public function post_user( Request $request ) {
+
+        $this->validate($request,[
+            'name'              => 'required|string|max:255',
+            'surname'           => 'required|string|max:255',
+            'email'             => 'required|string|email|max:255|unique:users',
+            'username'          => 'required|max:255|unique:users',
+            'password'          => 'required|string|min:6|confirmed',
+        ]);
 
         $user                   = User::create([
 

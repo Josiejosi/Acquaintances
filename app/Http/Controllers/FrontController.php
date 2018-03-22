@@ -15,7 +15,11 @@ use Socialite;
 class FrontController extends Controller
 {
     public function index() {
-    	return view( 'welcome', Helper::PageGenerator('Home', Video::orderBy( 'id', 'Desc' )->get() )  ) ;
+    	return view( 'welcome', Helper::PageGenerator( 'Home', Video::orderBy( 'id', 'Desc' )->get() )  ) ;
+    }
+
+    public function blocked() {
+    	return view( 'home.blocked', Helper::PageGenerator( 'Blocked Account' ) ) ;
     }
 
     public function redirectToProvider() {

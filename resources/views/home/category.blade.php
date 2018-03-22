@@ -34,6 +34,17 @@
 
 					<div class="col-md-4">
 						<h1 class="page-title"><span>Create</span> New Category</h1>
+
+						@if(count($errors) > 0)
+						    <div class="alert alert-info">
+						        <ul>
+						            @foreach($errors->all() as $error)
+						               <li> {{ $error }}</li>
+						            @endforeach
+						        </ul>
+						    </div>
+						@endif
+
 						<form action="{{ url( '/category' ) }}"  method="post">
 							@csrf
 					    	<div class="row">

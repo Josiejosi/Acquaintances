@@ -8,6 +8,17 @@
 
 					<div class="col-md-8">
 						<h1 class="page-title"><span>Upload</span> Video</h1>
+
+						@if(count($errors) > 0)
+						    <div class="alert alert-info">
+						        <ul>
+						            @foreach($errors->all() as $error)
+						               <li> {{ $error }}</li>
+						            @endforeach
+						        </ul>
+						    </div>
+						@endif
+
 						<form action="{{ url( '/upload' ) }}"  method="post" enctype="multipart/form-data">
 							@csrf
 					    	<div class="row">

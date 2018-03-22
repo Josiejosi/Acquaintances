@@ -38,5 +38,6 @@ Route::get('user', 					'HomeController@user')->name('user') ;
 Route::get('block', 				'HomeController@block')->name('block') ;
 Route::post('user', 				'HomeController@post_user')->name('post_user') ;
 
+Route::get('blocked', 				'FrontController@blocked');
 Route::get('login/github', 			'FrontController@redirectToProvider');
 Route::get('login/github/callback', 'FrontController@handleProviderCallback');
