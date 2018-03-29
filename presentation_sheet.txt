@@ -34,3 +34,11 @@ https://www.youtube.com/embed/pSiIHe2uZ2w - How to program in C# - BASICS - Begi
 https://www.youtube.com/embed/tcmmCcMs8yU - Create Login Window in C# step by step
 https://www.youtube.com/embed/YWA-xbsJrVg - How to Make a Website in 10 mins - Simple & Easy
 https://www.youtube.com/embed/udoMi4mGYYw - How to program in C# - VARIABLES - Beginner Tutorial
+
+HTML
+====
+https://youtu.com/embed/Pq08fNMOn7s - Your First HTML File
+https://youtu.com/embed/bWPMSSsVdPk - HTML is 12 Minutes
+https://youtu.com/embed/bWPMSSsVdPk - HTML Tutorial for Beginners - Learn HTML in 30 Minutes
+https://youtu.com/embed/hrZqiCUx6kg - Coding HTML for absolute beginners
+https://youtu.com/embed/dD2EISBDjWM - Introduction to HTML

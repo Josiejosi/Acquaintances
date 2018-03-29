@@ -10,23 +10,37 @@
                     </ul>
                 	<ul class="menu-sidebar">
                         <li><a href="{{ url('/profile') }}"><i class="fa fa-edit"></i>edit profile</a></li>
-                    	<li>
-                         
-                            <form action="{{ url( '/logout' ) }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-xs btn-info btn-block"><i class="fa fa-sign-out color-4"></i>sign out</button>
-                            </form>
-                            
-                        </li>
                     </ul>
 
                     @if ( auth()->user()->is_admin )
 
                     <ul class="menu-sidebar">
-                        <li><a href="#"><i class="fa fa-user"></i>Admin</a></li>
                         <li><a href="{{ url('/user') }}"><i class="fa fa-users"></i>Users</a></li>
                         <li><a href="{{ url('/block') }}"><i class="fa fa-users"></i>Block</a></li>
                         <li><a href="{{ url('/category') }}"><i class="fa fa-send-o"></i>Categories</a></li>
+                    </ul>
+
+                    <ul class="menu-sidebar">
+                        <li>
+                            <a href="{{ url('/users_in_system') }}">
+                                <i class="fa fa-users"></i>Users in System
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/videos_per_user') }}">
+                                <i class="fa fa-file-video-o" aria-hidden="true"></i>Videos per User
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/videos_in_system') }}">
+                                <i class="fa fa-file-video-o" aria-hidden="true"></i>Videos in System
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/registration_period') }}">
+                                <i class="fa fa-users"></i>Registration Period
+                            </a>
+                        </li>
                     </ul>
 
                     @endif

@@ -18,6 +18,10 @@ class FrontController extends Controller
     	return view( 'welcome', Helper::PageGenerator( 'Home', Video::orderBy( 'id', 'Desc' )->get() )  ) ;
     }
 
+    public function verification() {
+    	return view( 'auth.verification', Helper::PageGenerator( 'Verification' )  ) ;
+    }
+
     public function blocked() {
     	return view( 'home.blocked', Helper::PageGenerator( 'Blocked Account' ) ) ;
     }

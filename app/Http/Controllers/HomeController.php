@@ -7,16 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\User ;
 use App\Models\Video ;
 use App\Models\Category ;
+
 use App\Builder\Helper ;
 
 class HomeController extends Controller
 {
 
-    public function __construct()  { 
-
-        $this->middleware('auth') ; 
-
-    }
+    public function __construct()  { $this->middleware('auth') ; }
 
     public function index() {
         return view( 'home.index', Helper::PageGenerator('Home', Video::orderBy( 'id', 'Desc' )->get() )  ) ;

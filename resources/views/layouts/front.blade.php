@@ -86,5 +86,9 @@
     <script src="{{ asset( 'js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset( 'js/grid-blog.min.js') }}"></script>
 
+    <script>
+        //$('#login_dialog').modal({backdrop: 'static', keyboard: false})  ;
+    </script>
+
 	</body>
 </html>

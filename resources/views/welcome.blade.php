@@ -4,7 +4,27 @@
 
     @if( count( $bulder ) > 0 )
 
+        <?php $how_many_videos = 0 ; $first = true ; $clear_row = 1; ?>
+
         @foreach( $bulder as $video )
+
+
+            <?php 
+
+                if ( $how_many_videos % 4 === 0 ) { 
+                    $first = true ; 
+                    $clear_row = 1; 
+               } else {
+                    $first = false ;
+               }
+            ?>
+
+            <?php 
+
+                if ( $first == true ) { 
+                    echo "<div class='row'>" ;
+               }
+            ?>
 
 
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -17,7 +37,7 @@
                     <div class="video-info">
                         <a href="#" class="title"  data-toggle="modal" data-target="#login_dialog">{{ $video->name }}</a>
                         <a class="channel-name" href="#">
-                            {{ (\App\Models\User::find( $video->user_id ) )->name  }} {{ (\App\Models\User::find( $video->user_id ) )->name  }}
+                            {{ (\App\Models\User::find( $video->user_id ) )->name  }} {{ (\App\Models\User::find( $video->user_id ) )->surname  }}
                             <span>
                                 <i class="fa fa-check-circle"></i></span></a>
                         <span class="views"><i class="fa fa-eye"></i>0 views </span>
@@ -26,6 +46,14 @@
                 </div>
             </div>
 
+            <?php 
+
+                if ( $clear_row == 4 ) { 
+                    echo "</div>" ;
+               }
+            ?>
+
+            <?php $how_many_videos++ ; $clear_row++ ; ?>
 
         @endforeach    
 

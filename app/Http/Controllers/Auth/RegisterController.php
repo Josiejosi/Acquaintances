@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
+use App\Mail\EmailVerification;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -49,11 +54,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'username' => 'required|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name'              => 'required|string|max:255',
+            'surname'           => 'required|string|max:255',
+            'email'             => 'required|string|email|max:255|unique:users',
+            'username'          => 'required|max:255|unique:users',
+            'password'          => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -66,13 +71,48 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'username' => $data['username'],
-            'name' => $data['name'],
-            'surname' => $data['surname'],
-            'email' => $data['email'],
-            'is_active' => 1,
-            'is_admin' => 0,
-            'password' => bcrypt($data['password']),//Hash::make($data['password']),
+            'username'          => $data['username'],
+            'name'              => $data['name'],
+            'surname'           => $data['surname'],
+            'email'             => $data['email'],
+            'is_active'         => 1,
+            'is_admin'          => 0,
+            'is_verified'       => 0,
+            'email_token'       => base64_encode($data['email']),
+            'password'          => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+    * Handle a registration request for the application.
+    *
+    * @param \Illuminate\Http\Request $request
+    * @return \Illuminate\Http\Response
+    */
+
+    public function register(Request $request) {
+
+        $this->validator( $request->all() )->validate() ;
+        $user = $this->create( $request->all() ) ;
+        Mail::to( $user )->send( new EmailVerification( $user ) ) ;
+        return view( 'auth.verification' ) ;
+
+    }
+    /**
+    * Handle a registration request for the application.
+    *
+    * @param $token
+    * @return \Illuminate\Http\Response
+    */
+
+    public function verify( $token ) {
+
+        $user                   = User::where( 'email_token', $token )->first();
+        $user->is_verified      = 1;
+
+        if($user->save()) {
+            return view( 'auth.confirmed', [ 'user' => $user ] );
+        }
+
     }
 }

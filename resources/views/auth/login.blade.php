@@ -14,9 +14,9 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group label-floating">
-                    <label class="control-label">Your Email</label>
+                    <label class="control-label">Your Email / Username</label>
                     <input id="email" 
-                        type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                        type="input" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autofocus>
 
                     @if ($errors->has('email'))
                         <span class="invalid-feedback">
@@ -37,7 +37,7 @@
                                 Remember Me
                         </label>
                     </div>
-                    <a href="{{ url( '/password/reset' ) }}" class="forgot">Forgot my Password</a>
+                    <a href="{{ url( '/password/reset' ) }}" class="forgot">Forgot My Password</a>
                 </div>
                 
                 <button class="btn btn-lg btn-primary full-width">Login</button>

@@ -59,7 +59,7 @@
                          name="email" 
                          value="{{ old('email') }}" 
                         type="email">
-                        @if ($errors->has('name'))
+                        @if ($errors->has('email'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('email') }}</strong>
                             </span>
