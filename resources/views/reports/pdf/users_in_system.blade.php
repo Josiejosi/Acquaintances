@@ -28,21 +28,21 @@
 								<div class="col-md-4">
 									<div class="thumbnail">
 										<h2 class="text-center">{{ $bulder["min"] }}</h2>
-										<p class="text-center">Minimum Daily Registrations(s)</p>
+										<p class="text-center">Minimum Daily Registration(s)</p>
 									</div>
 								</div>
 								
 								<div class="col-md-4">
 									<div class="thumbnail">
 										<h2 class="text-center">{{ $bulder["max"] }}</h2>
-										<p class="text-center">Maximum Daily Registrations(s)</p>
+										<p class="text-center">Maximum Daily Registration(s)</p>
 									</div>
 								</div>
 								
 								<div class="col-md-4">
 									<div class="thumbnail">
 										<h2 class="text-center">{{ $bulder["avg"] }}</h2>
-										<p class="text-center">Average Daily Registrations(s)</p>
+										<p class="text-center">Average Daily Registration(s)</p>
 									</div>
 								</div>
 

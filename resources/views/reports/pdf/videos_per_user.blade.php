@@ -29,6 +29,7 @@
 
 				                	<thead>
 				                        <tr>
+				                            <td>Username</td>
 				                            <td>User(s) names</td>
 				                            <td>Number of videos</td>
 				                        </tr>		
@@ -41,6 +42,7 @@
 										@foreach( $bulder["users"] as $user )
 
 				                        <tr>
+				                            <td>{{ $user->username }}</td>
 				                            <td>{{ $user->name }} {{ $user->surname }}</td>
 				                            <td>{{ $bulder["video"]::where('user_id', $user->id )->count() }}</td>
 				                        </tr>
