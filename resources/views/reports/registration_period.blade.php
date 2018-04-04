@@ -36,6 +36,7 @@
 
 				                	<thead>
 				                        <tr>
+				                        	<td>Username</td>
 				                            <td>User(s) names</td>
 				                            <td>Registered Period</td>
 				                        </tr>		
@@ -48,6 +49,7 @@
 										@foreach( $bulder["users"] as $user )
 
 				                        <tr>
+				                            <td>{{ $user->username }}</td>
 				                            <td>{{ $user->name }} {{ $user->surname }}</td>
 				                            <td>{{ $user->created_at->diffForHumans() }}</td>
 				                        </tr>
