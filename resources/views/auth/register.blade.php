@@ -3,7 +3,7 @@
 @section('content')
 
         <div id="log-in-head">
-            <h1>Sing Up</h1>
+            <h1>Sign Up</h1>
             <div>
                 <a href="{{ url( '/' ) }}"><img src="{{ asset( 'img/logo.png' ) }}" alt="Acquaintances"></a>
             </div>

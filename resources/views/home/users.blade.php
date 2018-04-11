@@ -57,6 +57,10 @@
 					                <input type="text" class="form-control" name="email" placeholder="Email">
 					            </div>
 					        	<div class="col-md-12">
+					            	<label>Username</label>
+					                <input type="text" class="form-control" name="username" placeholder="Username">
+					            </div>
+					        	<div class="col-md-12">
 					            	<label>Name</label>
 					                <input type="text" class="form-control" name="name" placeholder="Name">
 					            </div>
